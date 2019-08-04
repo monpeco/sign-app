@@ -6,24 +6,24 @@
 </p>
 
 <p>
-  <strong>Last log:</strong>
+  <strong>Ultimo log-in:</strong>
   <%= @user.last_log %>
 </p>
 
 <p>
-  <strong>User type:</strong>
+  <strong>Tipo de Usuario:</strong>
   <%= @user.user_type %>
 </p>
 
 <p>
-  <strong>Active:</strong>
+  <strong>Activo:</strong>
   <%= @user.active %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Comentario:</strong>
   <%= @user.comment %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Regresar', users_path %>

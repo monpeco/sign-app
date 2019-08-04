@@ -1,7 +1,7 @@
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "error") %> al intentar guardar este Usuario:</h2>
 
       <ul>
       <% user.errors.full_messages.each do |message| %>
@@ -22,27 +22,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :password_confirmation %>
+    <%= form.label :password_confirmation, 'Confirmación del password' %>
     <%= form.password_field :password_confirmation %>
   </div>
 
   <div class="field">
-    <%= form.label :last_log %>
+    <%= form.label :last_log, 'Último log-in' %>
     <%= form.datetime_select :last_log %>
   </div>
 
   <div class="field">
-    <%= form.label :user_type %>
+    <%= form.label :user_type, 'Tipo de usuario' %>
     <%= form.text_field :user_type %>
   </div>
 
   <div class="field">
-    <%= form.label :active %>
+    <%= form.label :active, 'Activo' %>
     <%= form.check_box :active %>
   </div>
 
   <div class="field">
-    <%= form.label :comment %>
+    <%= form.label :comment, 'Comentario' %>
     <%= form.text_field :comment %>
   </div>
 
