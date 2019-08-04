@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+      user: Usuario
+    errors:
+      messages:
+        taken: "Este correo ya ha sido utilizado por otro %{model}"
+
+    
