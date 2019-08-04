@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   root to: 'store#home'
   get 'store/home'
   get 'store/about'
