@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
   root to: 'store#home'
+  
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  
   get 'store/home'
   get 'store/about'
   get 'store/contact'
