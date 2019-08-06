@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <div class="topnav">
+      <%= link_to 'Home', root_url %>
+      <%= link_to 'About', store_about_url %>
+      <%= link_to 'Contacto', store_contact_url %>
+    </div>
     <%= yield %>
   </body>
 </html>
