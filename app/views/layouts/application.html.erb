@@ -15,6 +15,9 @@
       <%= link_to 'About', store_about_url %>
       <%= link_to 'Contacto', store_contact_url %>
     </div>
+    <div>
+      <p>Usuario: <%= current_user %></p>
+    </div>
     <%= yield %>
   </body>
 </html>
