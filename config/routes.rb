@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  
+  get 'sessions', to: 'sessions#new'
   get 'store/home'
   get 'store/about'
   get 'store/contact'
