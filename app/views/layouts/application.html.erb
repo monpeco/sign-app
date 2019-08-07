@@ -16,7 +16,13 @@
       <%= link_to 'Contacto', store_contact_url %>
     </div>
     <div>
-      <p>Usuario: <%= current_user %></p>
+      <% if current_user.nil? %>
+        <p>No logueado</p>
+        <%= link_to 'Log in', new_session_url  %>
+        <%= link_to 'Sign up', new_user_url  %>
+      <% else %>
+        <p>Usuario: <%= current_user %></p>
+      <% end %>
     </div>
     <%= yield %>
   </body>
