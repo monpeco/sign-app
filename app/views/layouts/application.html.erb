@@ -18,8 +18,11 @@
     <div>
       <% if current_user.nil? %>
         <p>No logueado</p>
-        <%= link_to 'Log in', new_session_url  %>
-        <%= link_to 'Sign up', new_user_url  %>
+        <% unless @is_log_in %>
+          <%= link_to 'Log in', new_session_url  %>
+          <%= link_to 'Sign up', new_user_url  %>
+          <% @is_log_in = false %>
+        <% end %>
       <% else %>
         <p>Usuario: <%= current_user %></p>
         <%= link_to 'Log out', session_path(session[:user_id]), 
