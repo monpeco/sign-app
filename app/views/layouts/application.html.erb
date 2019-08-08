@@ -22,6 +22,10 @@
         <%= link_to 'Sign up', new_user_url  %>
       <% else %>
         <p>Usuario: <%= current_user %></p>
+        <%= link_to 'Log out', session_path(session[:user_id]), 
+                             method: :delete, 
+                             data: { confirm: 'Are you sure?' } %>
+
       <% end %>
     </div>
     <%= yield %>
