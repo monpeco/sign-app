@@ -38,4 +38,9 @@ en:
       messages:
         taken: "Este correo ya ha sido utilizado por otro %{model}"
 
-    
+  helpers:
+    submit:
+      user:
+        create: "Crear %{model}"   
+        update: "Guardar"   
+ 
