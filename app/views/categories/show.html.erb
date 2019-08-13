@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Image:</strong>
+  <%= image_tag @category.image  if @category.image.attached? %>
+</p>
+
+<p>
   <strong>Active:</strong>
   <%= @category.active %>
 </p>
