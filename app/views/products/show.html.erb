@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @product.code %>
+</p>
+
+<% if @product.images.attached? %>
+  <% @product.images.each do | image | %>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag image %>
+  </p>
+  <% end %>
+<% end %>
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Date added:</strong>
+  <%= @product.date_added %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @product.active %>
+</p>
+
+<p>
+  <strong>Deleted:</strong>
+  <%= @product.deleted %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @product.comment %>
+</p>
+
+<p>
+  <strong>Promo:</strong>
+  <%= @product.promo %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
