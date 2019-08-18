@@ -1,0 +1,51 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="<%= root_path%>">
+      <img src="/logoFabrica.png" height="10">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to 'Quienes Somos', store_about_url, class:"navbar-item" %>
+      <%= link_to 'Contacto', store_contact_url, class:"navbar-item" %>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Administración
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Agregar Productos
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if current_user.nil? %>
+            <%= link_to 'Registrarte', new_user_url, class:"button is-primary"  %>
+            <%= link_to 'Iniciar Sesión', new_session_url, class:"button is-light"  %>
+
+          <% else %>
+            <h6>
+              Bienvenido:<%= current_user %>
+            </h6>
+            <%= link_to 'Cerrar Sesión', session_path(session[:user_id]), class:"button is-light", 
+                             method: :delete, 
+                             data: { confirm: '¿Seguro deseas cerrar sesión?' } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
