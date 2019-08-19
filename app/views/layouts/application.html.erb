@@ -3,7 +3,6 @@
   <head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
-    <link href="~bulma-carousel/dist/css/bulma-carousel.min.css" rel="stylesheet">  
     <title>App1</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,6 +14,17 @@
   <body>
     <%= render "shared/navbar" %>
     <%= yield %>
-    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script>
+      // Initialize all div with carousel class
+      var carousels = bulmaCarousel.attach('#carousel-demo', {
+          slidesToScroll: 1,
+          slidesToShow: 1,
+          infinite: true,
+          duration: 500,
+          autoplay: true,
+          autoplaySpeed: 5000,
+      });
+    </script>
  </body>
 </html>
