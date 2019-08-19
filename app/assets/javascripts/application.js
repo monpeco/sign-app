@@ -33,7 +33,6 @@ $(document).ready(function() {
         duration: 500,
         autoplay: true,
         autoplaySpeed: 5000,
-
     });
 
     // Loop on each carousel initialized
