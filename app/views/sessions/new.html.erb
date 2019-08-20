@@ -1,15 +1,38 @@
-<p id=”alert”><%= alert %></p>
-<h1>Login</h1>
-<%= form_tag sessions_url do |form| %>
-  <div class=”field”>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+<div class="section">
+  <div class="columns is-desktop is-vcentered is-centered">
+    <div class="column is-5 has-text-centered">
+      <div class="box">
+        <p id=”alert”><%= alert %></p>
+        <h1 class="is-size-3">Iniciar Sesión</h1>
+        <%= form_tag sessions_url do |form| %>
+          
+          <div class=”field”>
+            <%= label_tag :"Correo Electrónico", nil ,class:"label is-size-5" %>
+            <p class="control has-icons-left has-icons-right">
+              <%= text_field_tag :email, nil ,class:"input", type:"email" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+          
+          <div class="field">
+            <%= label_tag :Contraseña, nil ,class:"label is-size-5" %>
+            <p class="control has-icons-left">
+              <%= password_field_tag :password, nil, class:"input", type:"password" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <%= submit_tag 'Iniciar Sesión', class:"button is-primary is-outlined is-normal" %>
+            </div>
+          </div>
+        <% end %>
+      </div> 
+    </div>
   </div>
-  <div class=”field”>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
 </div>
-  <div class=”actions”>
-    <%= submit_tag 'Login' %>
-  </div>
-<% end %>
