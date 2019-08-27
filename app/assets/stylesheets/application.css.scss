@@ -14,20 +14,9 @@
  *= require_tree .
  *= require_self
  */
- 
- $navbar-item-img-max-height: 3rem;
- $box-padding: 3rem;
-
- @import "bulma";
 
  html, body{
-     margin: 0;
-     height: 100%;
      background-color: #eee;
- }
-
- .hero-body{
-     height: 450px;
  }
 
 
