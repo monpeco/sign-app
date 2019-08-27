@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
-
+gem 'webpacker'
+gem 'react-rails'
 gem 'rails-assets-bulma', source: 'https://rails-assets.org'
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
