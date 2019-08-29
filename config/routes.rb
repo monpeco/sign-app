@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root to: 'store#home'
   get '*path', to: 'store#home'
   ## resources :users
-  ## resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :registration, only: [:create]
   ## get 'sessions', to: 'sessions#new'
   ## get 'store/home'
   ## get 'store/about'
