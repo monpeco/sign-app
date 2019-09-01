@@ -13,12 +13,19 @@ export const createFetch = ({ START, SUCCESS, ERROR }) => ({
     }),
 })
 
-export const searchHOR = ({ SEARCH }) => ({
-  [SEARCH]: state => ({
+export const resetFetch = ({ START, SUCCESS, ERROR }) => ({
+  [START]: state => ({ ...state, fetching: true }),
+  [SUCCESS]: (state) => ({
     ...state,
-    fetching: false,
+    data: {},
     fetched: true,
-    }),
+    fetching: false,
+  }),
+  [ERROR]: (state, { error }) => ({
+    ...state,
+    error,
+    fetching: false,
+  }),
 })
 
 export const assignHOR = ({ ASSIGN }) => ({
@@ -42,16 +49,12 @@ export const addHOR = ({ ADD }) => ({
     [ADD]: (state, { payload }) => ({
       ...state,
       data: state.data.concat([payload]),
-      fetched: true,
-      fetching: false,
     }),
 })
   
 export const editHOR = ({ EDIT }) => ({
   [EDIT]: (state, { payload }) => ({
     ...state,
-    fetched: true,
-    fetching: false,
     data: state.data.map(x => {
       if(x.id === payload.id)
         return payload 
@@ -71,8 +74,6 @@ export const toggleHOR = ({ TOGGLE }) => ({
 export const delHOR = ({ DEL }) => ({
   [DEL]: (state, { payload }) => ({
     ...state,
-    fetched: false,
-    fetching: false,
     data: state.data.filter(x => x.id !== payload)
   }),
 })
