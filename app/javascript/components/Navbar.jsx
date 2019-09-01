@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import logo from '../img/logoFabrica.png'
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
-import { BrowserRouter as Router } from 'react-router-dom';
+MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBBtn } from "mdbreact";
+
 
 const styles = {
     img:{
@@ -20,8 +20,8 @@ toggleCollapse = () => {
 }
 
 render() {
+  const { user, handleSignOut } = this.props
   return (
-    <Router>
       <MDBNavbar color="elegant-color" dark expand="md">
         <MDBNavbarBrand>
           <img src={logo} style={styles.img}/>
@@ -29,6 +29,9 @@ render() {
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
+            <MDBNavItem>
+              <MDBNavLink to="/">Inicio</MDBNavLink>
+            </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink to="#!">Quienes Somos</MDBNavLink>
             </MDBNavItem>
@@ -38,7 +41,7 @@ render() {
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">Dropdown</div>
+                  <div className="d-none d-md-inline">Administración</div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="#!">Action</MDBDropdownItem>
@@ -49,34 +52,30 @@ render() {
               </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
+          {user.data.user ? 
           <MDBNavbarNav right>
             <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="#!">
-                <MDBIcon fab icon="twitter" />
-              </MDBNavLink>
+              <MDBNavLink to="/">Bienvenid@ {user.data.user.email}</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="#!">
-                <MDBIcon fab icon="google-plus-g" />
-              </MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  <MDBIcon icon="user" />
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+              <MDBBtn onClick={handleSignOut} size="sm" color="unique">Cerrar Sesión</MDBBtn>
             </MDBNavItem>
           </MDBNavbarNav>
+          : 
+          <MDBNavbarNav right>
+            <MDBNavItem>
+              <MDBNavLink className="waves-effect waves-light" to="/signup">
+                <MDBBtn size="sm" color="unique">Registrarse</MDBBtn>
+              </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="waves-effect waves-light" to="/login">
+                <MDBBtn size="sm" color="unique">Iniciar Sesión</MDBBtn>
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>}
         </MDBCollapse>
       </MDBNavbar>
-    </Router>
     );
   }
 }
