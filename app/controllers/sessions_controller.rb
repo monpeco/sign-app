@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
   include CurrentUserConcern
   
-  def new
+  def logged_in
     if @current_user
       render json: {
         user: @current_user
+      } 
+    else
+      render json: {
       }
     end
   end
@@ -14,7 +17,6 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       render json: {
-        status: :created,
         user: user
       }
       # redirect_to root_url, notice: 'Log in!'
@@ -22,17 +24,16 @@ class SessionsController < ApplicationController
       # redirect_to root_url
     else
       render json: {
-        status: 401
       }
       # flash.now[:alert] = 'Email o password incorrecto'
       # render 'new'
     end
   end
 
-  def destroy
+  def log_out
     session[:user_id] = nil
-    render json: { status: 200 }
-    
+    render json: {}
     # redirect_to root_url, notice: 'Log out!:'
   end
+
 end

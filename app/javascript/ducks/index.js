@@ -1,5 +1,7 @@
-import Cuentas from './Cuentas'
+import User from './User'
+import { reducer as formReducer } from 'redux-form'
 
 export default {
-    Cuentas,
+    User,
+    form: formReducer
 }
