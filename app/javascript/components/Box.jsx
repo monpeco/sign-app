@@ -4,7 +4,7 @@ import { MDBCard, MDBCardBody, MDBRow, MDBCol, MDBContainer } from "mdbreact";
 const PanelPage = props => {
 return (
   <MDBContainer>
-    <MDBRow>
+    <MDBRow className="justify-content-center align-items-center">
       <MDBCol md="6">
         <MDBCard>
           <MDBCardBody>
