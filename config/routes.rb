@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   ## resources :users
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]
+  resources :users
+  resources :categories
+  resources :products
   get :logged_in , to: 'sessions#logged_in'
   delete :log_out , to: 'sessions#log_out'
   ## get 'sessions', to: 'sessions#new'
