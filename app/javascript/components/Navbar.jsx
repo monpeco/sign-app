@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import logo from '../img/logoFabrica.png'
+import { Link } from 'react-router-dom'
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBBtn } from "mdbreact";
 
 
 const styles = {
+    link:{
+      padding: '0px'
+    },
     img:{
         width: '40px'
     }
@@ -20,7 +24,7 @@ toggleCollapse = () => {
 }
 
 render() {
-  const { user, handleSignOut } = this.props
+  const { user, handleSignOutModal } = this.props
   return (
       <MDBNavbar color="elegant-color" dark expand="md">
         <MDBNavbarBrand>
@@ -44,10 +48,20 @@ render() {
                   <div className="d-none d-md-inline">Administración</div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                  <Link style={styles.link} to="/configuration/users">
+                    <MDBDropdownItem>
+                      Usuarios
+                    </MDBDropdownItem>
+                  </Link>
+                  <Link style={styles.link} to="/configuration/categories">
+                    <MDBDropdownItem >Categorías</MDBDropdownItem>
+                  </Link>
+                  <Link style={styles.link} to="/configuration/products">
+                    <MDBDropdownItem>Productos</MDBDropdownItem>
+                  </Link>
+                  <Link style={styles.link} to="#!">
+                    <MDBDropdownItem>Something else here</MDBDropdownItem>
+                  </Link>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
@@ -58,7 +72,7 @@ render() {
               <MDBNavLink to="/">Bienvenid@ {user.data.user.email}</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBBtn onClick={handleSignOut} size="sm" color="unique">Cerrar Sesión</MDBBtn>
+              <MDBBtn onClick={handleSignOutModal} size="sm" color="unique">Cerrar Sesión</MDBBtn>
             </MDBNavItem>
           </MDBNavbarNav>
           : 
