@@ -17,7 +17,7 @@ class SignUp extends React.Component{
     render(){
         const { user } = this.props
         return(
-            <MDBContainer>
+            <MDBContainer className="my-4">
                 <MDBRow>
                     <Box>
                         <SignUpForm user={user} onSubmit={this.handleRegister}/>

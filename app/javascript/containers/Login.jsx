@@ -9,19 +9,18 @@ import * as userDuck from '../ducks/User'
 class Login extends React.Component{
 
     handleLogin = async values => {
-        const { LogInUser } = this.props
+        const { LogInUser, history } = this.props
         await LogInUser(values)
+        history.push("/")
     }
 
     render(){
         const { user } = this.props
         return(
-            <MDBContainer>
-                <MDBRow>
-                    <Box>
-                        <LoginForm user={user} onSubmit={this.handleLogin}/>
-                    </Box>
-                </MDBRow>
+            <MDBContainer className="my-4">
+                <Box>
+                    <LoginForm user={user} onSubmit={this.handleLogin}/>
+                </Box>
             </MDBContainer>
         )
     }
