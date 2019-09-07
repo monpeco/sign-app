@@ -18,7 +18,7 @@ RSpec.describe 'Creating a user', type: :feature do
     fill_in 'user_password', with: 'sample'
     fill_in 'user_password_confirmation', with: 'sample'
     click_on 'Crear Usuario'
-    expect(page).to have_content('error')
+    expect(page).to have_content('Este campo no puede estar vacio')
   end
 
 end

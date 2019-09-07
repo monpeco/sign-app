@@ -37,7 +37,7 @@ en:
     errors:
       messages:
         taken: "Este correo ya ha sido utilizado por otro %{model}"
-
+        blank: "Este campo no puede estar vacio"
   helpers:
     submit:
       user:
