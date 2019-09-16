@@ -29,10 +29,10 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        ##format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
-        format.html { render :new }
+        ##format.html { render :new }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +70,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :active, :comment, :image)
+      params.permit(:name, :active, :comment, :image)
     end
 end
