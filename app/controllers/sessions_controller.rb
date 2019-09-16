@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
         user: @current_user
       } 
     else
-      render json: {
-      }
+      render json: @current_user.errors, status: :unprocessable_entity
     end
   end
 
@@ -23,8 +22,7 @@ class SessionsController < ApplicationController
       # flash.now[:alert] = 'USUARIO LOGEADO'
       # redirect_to root_url
     else
-      render json: {
-      }
+      render json: user.errors, status: :unprocessable_entity
       # flash.now[:alert] = 'Email o password incorrecto'
       # render 'new'
     end
