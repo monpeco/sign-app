@@ -14,7 +14,7 @@ export default class SimpleAction extends React.Component {
             icon: 'add',
             tooltip: 'Agregar',
             isFreeAction: true,
-            onClick: (event) => handleAgregar
+            onClick: (event) => handleAgregar()
           }
         ]}
       />
