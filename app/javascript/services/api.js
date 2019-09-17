@@ -1,5 +1,5 @@
-//const baseUrl = 'http://localhost:3000'
-const baseUrl = 'https://whispering-reaches-92144.herokuapp.com/'
+const baseUrl = 'http://localhost:3000'
+//const baseUrl = 'https://whispering-reaches-92144.herokuapp.com/'
 async function request(url,method, data) {
     const response = await fetch(`${baseUrl}${url}`, {method: method,
         headers: {

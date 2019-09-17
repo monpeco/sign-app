@@ -29,10 +29,10 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        #format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new }
+        #format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +70,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:code, :name, :price, :description, :date_added, :active, :deleted, :comment, :promo, :category_id, images: [])
+      params.permit(:code, :name, :price, :description, :date_added, :active, :deleted, :comment, :promo, :category_id, images: [])
     end
 end
