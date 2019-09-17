@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_222839) do
+ActiveRecord::Schema.define(version: 2019_09_17_053604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2019_08_15_222839) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stock"
+    t.integer "reorder"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["code"], name: "index_products_on_code", unique: true
     t.index ["name"], name: "index_products_on_name", unique: true
@@ -79,6 +81,29 @@ ActiveRecord::Schema.define(version: 2019_08_15_222839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_properties_on_product_id"
+  end
+
+  create_table "saledetails", force: :cascade do |t|
+    t.integer "quantity"
+    t.float "price"
+    t.bigint "product_id"
+    t.bigint "sale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_saledetails_on_product_id"
+    t.index ["sale_id"], name: "index_saledetails_on_sale_id"
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.datetime "date_sale"
+    t.string "payer_email"
+    t.string "address"
+    t.string "payment_type"
+    t.datetime "date_payment"
+    t.datetime "date_confirmation"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,4 +122,6 @@ ActiveRecord::Schema.define(version: 2019_08_15_222839) do
   add_foreign_key "attributes", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "properties", "products"
+  add_foreign_key "saledetails", "products"
+  add_foreign_key "saledetails", "sales"
 end
