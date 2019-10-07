@@ -13,6 +13,57 @@ export const createFetch = ({ START, SUCCESS, ERROR }) => ({
     }),
 })
 
+export const addFetch = ({ START, SUCCESS, ERROR }) => ({
+  [START]: state => ({ ...state, fetching: true }),
+  [SUCCESS]: (state, { payload }) => ({
+    ...state,
+    data: state.data.concat([payload]),
+    fetched: true,
+    fetching: false,
+  }),
+  [ERROR]: (state, { error }) => ({
+    ...state,
+    error,
+    fetching: false,
+  }),
+})
+
+export const delFetch = ({ START, SUCCESS, ERROR }) => ({
+  [START]: state => ({ ...state, fetching: true }),
+  [SUCCESS]: (state, { payload }) => ({
+    ...state,
+    data: state.data.filter(x => x.id !== payload),
+    fetched: true,
+    fetching: false,
+  }),
+  [ERROR]: (state, { error }) => ({
+    ...state,
+    error,
+    fetching: false,
+  }),
+})
+
+export const editFetch = ({ START, SUCCESS, ERROR }) => ({
+  [START]: state => ({ ...state, fetching: true }),
+  [SUCCESS]: (state, { payload }) => ({
+    ...state,
+    data: state.data.map(x => {
+      if(x.id === payload.id)
+        return payload 
+      else
+        return x
+    }),
+    fetched: true,
+    fetching: false,
+  }),
+  [ERROR]: (state, { error }) => ({
+    ...state,
+    error,
+    fetching: false,
+  }),
+})
+
+
 export const resetFetch = ({ START, SUCCESS, ERROR }) => ({
   [START]: state => ({ ...state, fetching: true }),
   [SUCCESS]: (state) => ({

@@ -22,7 +22,6 @@ async function request(url,method, data) {
 
 export function crear(url,data){
     return request(url, 'POST', data);
-
 }
 
 export function modificar(url, id, data){
@@ -34,13 +33,9 @@ export function leer(url,id){
         return request(`${url}/${id}`)
     else
         return request(`${url}`)
-
 }
 
 export function borrar(url,id){
-    if (id)
-        return request(`${url}/${id}`, 'DELETE')
-    else
-        return request(`${url}`, 'DELETE') 
+    return request(`${url}/${id}`, 'DELETE')
 }
 

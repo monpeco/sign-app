@@ -20,17 +20,6 @@ const resetFetchReducer = createReducer(initialState, resetFetch( RESETFETCH ))
 
 export default reduceReducers(fetchReducer, resetFetchReducer)
 
-export const login = values => async (dispatch, getState) => {
-    dispatch(fetchActions.start())
-    try {
-        //const data = await crear('/registrations', values)
-        //dispatch(fetchActions.success(data))        
-    } catch (error) {
-        console.log(error)
-        dispatch(fetchActions.error(error))        
-    }
-}
-
 export const register =  values => async (dispatch, getState) => {
     if(values.password === values.confirm_password){
         dispatch(fetchActions.start())
@@ -61,9 +50,9 @@ export const checkUser =  () => async (dispatch, getState) => {
     dispatch(fetchActions.start())
     try {
         const data = await leer('/logged_in')
+        console.log(data)
         dispatch(fetchActions.success(data))
     } catch (error) {
-        console.log(error)
         dispatch(fetchActions.error(error))
     }
 }
@@ -72,10 +61,8 @@ export const signOut =  () => async (dispatch, getState) => {
     dispatch(resetFetchActions.start())
     try {
         const data = await borrar('/log_out')
-        console.log(data)
         dispatch(resetFetchActions.success(data))
     } catch (error) {
-        console.log(error)
         dispatch(resetFetchActions.error(error))
     }
 }

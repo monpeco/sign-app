@@ -10,7 +10,6 @@ class SignUp extends React.Component{
 
     handleRegister = async values => {
         const { register } = this.props
-        console.log(this.props)
         await register(values)
     }
 
@@ -30,7 +29,6 @@ class SignUp extends React.Component{
 
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         user: state.User
     }

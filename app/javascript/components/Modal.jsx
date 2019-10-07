@@ -21,16 +21,14 @@ render() {
         <MDBModal isOpen={open} toggle={handleClose} centered>
           <MDBModalHeader toggle={handleClose}>{title ? title : (confirmation ? "Confirmación" : "Notificación")}</MDBModalHeader>
           <MDBModalBody>
-            {this.props.children}
+            {loading ? <Spinner /> : this.props.children}
           </MDBModalBody>
           <MDBModalFooter>
-            {loading ? <Spinner /> :
             <div>
                 <MDBBtn size="sm" color="elegant" onClick={handleClose}>CERRAR</MDBBtn>
                 {confirmation &&
-                <MDBBtn onClick={action} size="sm" color="unique">SI</MDBBtn>}
+                <MDBBtn onClick={action} disabled={loading && true} size="sm" color="unique">SI</MDBBtn>}
             </div>
-            }
           </MDBModalFooter>
         </MDBModal>
       </MDBContainer>

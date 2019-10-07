@@ -14,10 +14,25 @@ class Users extends React.Component{
     }
 
     render(){
-        const { users } = this.props
-        console.log(users.data)
+        const { users, categories } = this.props
+        console.log(categories)
         return(
                 <MDBContainer className="my-4">
+                    <MDBRow>
+                        <MDBCol>
+                            hola
+                        </MDBCol>
+                    </MDBRow>
+                    <MDBRow>
+                        <MDBCol>
+                            {categories.data.map(x => <MDBRow key={x.id}>
+                                                    <MDBCol>
+                                                        {x.name}
+                                                    </MDBCol>
+                                                </MDBRow>
+                            )}
+                        </MDBCol>
+                    </MDBRow>
                     <MDBRow>
                         <MDBCol>
                             <h2>Usuarios</h2>
@@ -54,7 +69,8 @@ class Users extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        users: state.Users
+        users: state.Users,
+        categories: state.Categories
     }
 }
 

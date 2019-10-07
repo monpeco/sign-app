@@ -56,7 +56,7 @@ render() {
                   <Link style={styles.link} to="/configuration/categories">
                     <MDBDropdownItem >Categorías</MDBDropdownItem>
                   </Link>
-                  <Link style={styles.link} to="/configuration/products">
+                  <Link style={styles.link} to="/configuration/productos">
                     <MDBDropdownItem>Productos</MDBDropdownItem>
                   </Link>
                   <Link style={styles.link} to="#!">

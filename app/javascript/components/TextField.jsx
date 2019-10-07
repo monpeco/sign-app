@@ -1,23 +1,20 @@
-import React from "react";
-import { MDBInput } from "mdbreact";
+import React from 'react'
+import TextField from '@material-ui/core/TextField';
 
-const InputPage = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) => {
-  return (
-    <MDBInput 
-        {...input}
-        {...custom}
-        label={label}
-        validate
-        error="wrong"
-        success="right"
+const renderTextField = ({
+    input,
+    label,
+    meta: { touched, error },
+    ...custom
+  }) => {
+    return(
+        <TextField
+          label={label}
+          {...input}
+          {...custom}
+          error={touched && error}
+          helperText={touched && ((error && <span>{error}</span>))}
+        />
+  )}
 
-    />
-  );
-}
-
-export default InputPage;
+  export default renderTextField

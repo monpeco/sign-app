@@ -40,12 +40,11 @@ class App extends React.Component{
         const { signOut, assignMessage } = this.props
         await signOut()
         assignMessage("Chuuuuuta te fuiste :(, te esperamos pronto!")
-        this.setState({ ...this.state, open: true, confirmation: false, action: this.handleSignOut })
+        this.setState({ ...this.state, open: true, confirmation: false, action: false })
     }
 
     render(){
         const { user, message, history } = this.props
-        console.log(message)
         return(
             <div>
                 <Route path="/" render={() => <Navbar user={user} handleSignOutModal={this.handleSignOutModal} />} />
@@ -71,7 +70,6 @@ class App extends React.Component{
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         user: state.User,
         message: state.Messages,
